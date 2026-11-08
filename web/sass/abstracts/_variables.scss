@@ -1,0 +1,64 @@
+// ============================================
+// COLORES PRINCIPALES
+// ============================================
+$color-primary: #C9001D;
+$color-primary-hover: #A00018;
+
+$color-background: #F7F5F7;
+$color-white: #FFFFFF;
+$color-black: #000000;
+
+$color-text: #29232B;
+$color-text-secondary: #716875;
+$color-text-muted: #A49AA7;
+$color-border: #E8E2EA;
+
+
+// ============================================
+// COLORES DE IDENTIDAD
+// ============================================
+$color-purple: #270427;
+$color-purple-semidark: #392539;
+$color-purple-semidark2: #351035;
+$color-purple-pure: #4B1D4B;
+$color-purple-light: #EDE5F0;
+$sidebar-upload-button-hover: #5A2B5A;
+$sidebar-upload-button-border: #6C426C;
+
+$color-blue: #0A052A;
+$color-blue-light: #27214F;
+$color-blue-tenue: #F2F1FA;
+$color-blue-tenue-hover: #E8E6F5;
+
+
+// ============================================
+// TARJETAS ESPECIALES
+// ============================================
+$card-highlight-background: $color-blue;
+$card-highlight-text: $color-white;
+$card-highlight-muted: #B9B4D0;
+$card-highlight-border: #211A48;
+
+
+
+// ============================================
+// ESTADOS
+// ============================================
+$color-success: #15803D;
+$color-success-background: #DCFCE7;
+
+$color-warning: #B45309;
+$color-warning-badge: #cf691b;
+$color-warning-background: #fee7c7;
+$color-warning-backgroundhov: #edd5b4;
+
+$color-danger: $color-primary;
+$color-danger-background: #dfc0c0;
+$color-danger-backgroundhov: #d3abab;
+
+
+// ============================================
+// MEDIDAS
+// ============================================
+$sidebar-width: 350px;
+$mobile-breakpoint: 768px;

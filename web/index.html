@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema de Alarmas</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+
+<body>
+    <div class="layout">
+        
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">A</div>
+            <span>Alarmas System</span>
+        </div>
+
+        <!-- MENÚ -->
+        <div class="menu-section">
+            <button id="summaryBtn" class="menu-item summary-menu-btn" type="button">
+                <span>◷</span>
+                Resumen del día
+            </button>
+
+            <a href="#" class="menu-item active">
+                <span>▦</span>
+                Importación de datos
+            </a>
+        </div>
+
+        
+        <!-- IMPORTACIÓN DE ARCHIVOS -->
+        <div class="sidebar-import">
+            <div class="sidebar-import-heading">
+                <h2>Importar datos</h2>
+                <p>Carga un archivo para actualizar las alarmas.</p>
+            </div>
+
+            <div class="upload-container">
+                <div class="upload-icon">
+                    ↑
+                </div>
+                <div class="upload-info">
+                    <strong>Selecciona un archivo CSV</strong>
+                    <span>Formato permitido: CSV</span>
+                </div>
+                <input type="file" id="csvFile" accept=".csv" hidden>
+                <button id="selectFileBtn" class="btn-secondary" type="button"> Seleccionar archivo </button>
+            </div>
+
+            <div id="fileName" class="file-name">
+                Ningún archivo seleccionado
+            </div>
+
+            <div class="upload-footer">
+                <span id="uploadMessage">
+                    El archivo debe estar separado por "|".
+                </span>
+                <button id="importBtn" class="btn-primary" type="button" disabled > Importar datos </button>
+            </div>
+        </div>
+    </aside>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+
+        <!-- NAV SUPERIOR -->
+        <header class="topbar">
+            <div class="breadcrumb">
+                Inicio / Importación de datos
+            </div>
+            <div class="topbar-right">
+                Sistema de alarmas
+            </div>
+        </header>
+
+        <!-- CONTENIDO -->
+        <section class="content">
+            <div class="page-heading">
+                <h1>Importación de datos</h1>
+            </div>
+
+            <!-- TABLA -->
+            <div class="panel table-panel">
+                <div class="panel-heading table-heading">
+                    <div>
+                        <h2>Registros de alarmas</h2>
+                        <p> Información del archivo importado. </p>
+                    </div>
+
+                    <div class="record-counter">
+                        Total de registros:
+                        <strong id="totalRecords">0</strong>
+                    </div>
+                </div>
+
+                <!-- FILTROS Y EXPORTACIÓN -->
+                <div class="table-toolbar">
+                    <div class="filter-group">
+                        <label for="alertFilter">Nivel de alerta</label>
+
+                        <select id="alertFilter">
+                            <option value="ALL">Todos los registros</option>
+                            <option value="WARN">Solo WARN</option>
+                            <option value="CRITICO">Solo CRÍTICO</option>
+                            <option value="NORMAL">Solo normales</option>
+                        </select>
+                    </div>
+
+                    <button id="exportExcelBtn" class="export-btn" type="button">
+                        <span>↓</span>
+                        Exportar a Excel
+                    </button>
+                </div>
+
+                <div class="table-container">
+                    <table id="alarmsTable">
+                        <thead>
+                            <tr>
+                                <th>Información</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td class="empty-state">
+                                    No hay registros para mostrar.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    
+    <!-- MODAL RESUMEN DEL DÍA -->
+    <div id="summaryModal" class="summary-modal" hidden>
+        <div class="summary-modal-overlay"></div>
+        <div class="summary-modal-content">
+            <!-- ENCABEZADO -->
+            <div class="summary-modal-header">
+                <div>
+                    <h2>Resumen del día</h2>
+                    <p id="summaryDate">Alarmas registradas hoy</p>
+                </div>
+
+                <button id="closeSummaryBtn" class="summary-close-btn" type="button" aria-label="Cerrar resumen" >
+                    &times;
+                </button>
+            </div>
+
+            <!-- TOTAL -->
+            <div class="summary-total-card">
+                <span>Total de alarmas de hoy</span>
+                <strong id="summaryTotal">0</strong>
+            </div>
+
+            <!-- ESTADO -->
+            <div id="summaryMessage" class="summary-message">
+                Consultando información...
+            </div>
+
+            <!-- GRÁFICO Y TABLA -->
+            <div class="summary-data-layout">
+
+                <!-- GRÁFICO POR HORA -->
+                <div class="summary-chart-container">
+                    <h3>Alarmas por hora</h3>
+
+                    <div id="summaryChart" class="summary-chart"></div>
+                </div>
+
+                <!-- TABLA DE RESUMEN -->
+                <div class="summary-table-container">
+                    <h3>Detalle por hora</h3>
+                    <table class="summary-table">
+                        <thead>
+                            <tr>
+                                <th>Hora</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="summaryTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script type="module" src="js/app.js"></script> 
+</body>
+
+</html>

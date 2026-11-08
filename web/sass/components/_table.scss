@@ -1,0 +1,228 @@
+@use "../abstracts/variables" as v;
+
+
+
+// FILTROS Y EXPORTACIÓN
+.table-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    label {
+        font-size: 13px;
+        font-weight: 600;
+        color: v.$color-text-secondary;
+    }
+}
+
+#alertFilter {
+    min-width: 200px;
+    padding: 10px 14px;
+    border: 1px solid v.$color-primary;
+    border-radius: 7px;
+    background-color: v.$color-primary;
+    color: v.$color-white;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    &:hover {
+        background-color: v.$color-primary-hover;
+        border-color: v.$color-primary-hover;
+    }
+    &:focus {
+        outline: none;
+        border-color: v.$color-primary-hover;
+        box-shadow: 0 0 0 3px rgba(201, 0, 29, 0.15);
+    }
+    option {
+        background-color: #FFFFFF;
+        color: #29232B;
+        font-weight: 400;
+    }
+}
+
+
+.table-heading {
+    margin-bottom: 20px;
+}
+
+.record-counter {
+    font-size: 13px;
+    color: v.$color-text-secondary;
+    strong {
+        color: v.$color-text;
+    }
+}
+
+.table-container {
+    width: 100%;
+    max-height: 550px;
+    overflow-y: auto;
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    // Scroll vertical interno
+    scrollbar-width: thin;
+    scrollbar-color: v.$color-primary transparent;
+    &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+    font-size: 12px;
+    border-bottom: 1px solid #DCD9EB;
+}
+thead {
+    background: v.$color-blue;
+}
+
+th {
+    color: v.$color-white;
+    font-weight: 600;
+}
+
+th,
+td {
+    padding: 15px 18px;
+    text-align: left;
+    border-bottom: 1px solid #DCD9EB;
+}
+
+tbody tr {
+    background: v.$color-blue-tenue;
+    transition: background-color 0.18s ease;
+    &:nth-child(even) {
+        background: #FAF9FD;
+    }
+    &:hover {
+        background: v.$color-blue-tenue-hover;
+    }
+}
+
+td {
+    color: #475569;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 35px;
+    color: #94a3b8;
+}
+
+// FILAS WARN
+tbody tr.row-warn {
+    background-color: v.$color-warning-background;
+    &:hover {
+        background-color: v.$color-warning-backgroundhov;
+    }
+    td {
+        border-bottom-color: v.$color-warning-backgroundhov;
+    }
+    /* Columna completa de criticidad */
+    td.alert-cell {
+        background-color: v.$color-warning-background;
+        color: v.$color-warning;
+    }
+}
+
+// FILAS CRÍTICAS
+tbody tr.row-critico {
+    background-color: v.$color-danger-background;
+    &:hover {
+        background-color: v.$color-danger-backgroundhov;
+    }
+    td {
+        border-bottom-color: v.$color-danger-backgroundhov;
+    }
+    /* Columna completa de criticidad */
+    td.alert-cell {
+        background-color: v.$color-danger-background;
+        color: v.$color-danger;
+    }
+}
+
+/* ==========================================
+   ETIQUETAS VISUALES DE ALERTA
+========================================== */
+.alert-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 85px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-align: center;
+    user-select: none;
+}
+
+/* CRÍTICO */
+.alert-badge.critico {
+    background-color: v.$color-danger;
+    border: 1px solid v.$color-danger;
+    color: v.$color-white;
+    box-shadow: 0 1px 2px rgba(180, 35, 50, 0.05);
+}
+
+/* WARN */
+.alert-badge.warn {
+    background-color: v.$color-warning-badge;
+    border: 1px solid v.$color-warning-badge;
+    color: v.$color-white;
+    box-shadow: 0 1px 2px rgba(166, 90, 18, 0.05);
+}
+
+/* NORMAL */
+.alert-badge.normal {
+    background-color: #F3F4F6;
+    border: 1px solid #D1D5DB;
+    color: #6B7280;
+}
+
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+@media (max-width: 768px) {
+    .table-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+    .filter-group {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 8px;
+    }
+    #alertFilter,
+    .export-btn {
+        width: 100%;
+    }
+}

@@ -1,0 +1,90 @@
+@use "../abstracts/variables" as v;
+
+// ==========================================
+// BASE DE BOTONES
+// ==========================================
+
+.btn-primary,
+.btn-secondary,
+.export-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    border-radius: 7px;
+    padding: 11px 17px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.15s ease;
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.55;
+        box-shadow: none;
+        transform: none;
+    }
+    &:active:not(:disabled) {
+        transform: translateY(1px);
+    }
+}
+
+// BOTÓN PRINCIPAL
+.btn-primary {
+    width: 100%;
+    padding: 11px;
+    background: v.$color-primary;
+    color: v.$color-white;
+    border: 1px solid v.$color-primary;
+    &:hover:not(:disabled) {
+        background: v.$color-primary-hover;
+        border-color: v.$color-primary-hover;
+        box-shadow: 0 3px 8px rgba(201, 0, 29, 0.16);
+    }
+    &:disabled {
+        background: #E5E7EB;
+        border-color: #D1D5DB;
+        color: #9CA3AF;
+    }
+}
+
+// BOTÓN SECUNDARIO
+.btn-secondary {
+    width: 100%;
+    padding: 10px;
+    background: #FFFFFF;
+    color: v.$color-primary;
+    border: 1px solid v.$color-primary;
+    &:hover:not(:disabled) {
+        background: #FFF1F2;
+        border-color: v.$color-primary-hover;
+        color: v.$color-primary-hover;
+    }
+    &:disabled {
+        background: #F3F4F6;
+        border-color: #D1D5DB;
+        color: #9CA3AF;
+    }
+}
+
+// BOTÓN EXPORTAR EXCEL
+.export-btn {
+    background: v.$color-primary;
+    color: v.$color-white;
+    border: 1px solid v.$color-primary;
+    &:hover:not(:disabled) {
+        background: v.$color-primary-hover;
+        border-color: v.$color-primary-hover;
+        box-shadow: 0 3px 8px rgba(201, 0, 29, 0.16);
+    }
+    &:disabled {
+        background: #E5E7EB;
+        border-color: #D1D5DB;
+        color: #9CA3AF;
+    }
+}

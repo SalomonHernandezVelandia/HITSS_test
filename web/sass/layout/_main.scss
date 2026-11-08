@@ -1,0 +1,53 @@
+
+@use "../abstracts/variables" as v;
+
+
+
+.main-content {
+    margin-left: v.$sidebar-width;
+    width: calc(100% - v.$sidebar-width);
+    min-width: 0;
+    min-height: 100vh;
+    background: v.$color-background;
+}
+
+
+// BARRA SUPERIOR
+
+.topbar {
+    height: 70px;
+    background: v.$color-black;
+    border-bottom: 1px solid v.$color-border;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 35px;
+}
+
+.breadcrumb {
+    font-size: 13px;
+    color: v.$color-text-secondary;
+}
+
+.topbar-right {
+    font-size: 13px;
+    color: v.$color-text-secondary;
+}
+
+
+// CONTENIDO
+.content {
+    padding: 35px;
+}
+
+.page-heading {
+    margin-bottom: 28px;
+    h1 {
+        font-size: 25px;
+        margin-bottom: 9px;
+    }
+    p {
+        color: #7b8494;
+        font-size: 14px;
+    }
+}

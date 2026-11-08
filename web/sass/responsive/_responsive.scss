@@ -1,0 +1,133 @@
+@use "../abstracts/variables" as v;
+
+@media (max-width: v.$mobile-breakpoint) {
+
+    // DISTRIBUCIÓN GENERAL
+
+    .layout {
+        flex-direction: column;
+    }
+
+
+    // SIDEBAR
+
+    .sidebar {
+        width: 100%;
+        padding: 18px;
+    }
+
+    .logo {
+        justify-content: flex-start;
+        margin-bottom: 25px;
+
+        span {
+            display: inline;
+        }
+    }
+
+    .menu-section {
+        display: none;
+    }
+
+    .sidebar-import {
+        margin-top: 0;
+    }
+
+    .sidebar-footer {
+        display: none;
+    }
+
+
+    // CONTENIDO PRINCIPAL
+
+    .content {
+        padding: 20px;
+    }
+
+    .topbar {
+        padding: 0 20px;
+    }
+
+
+    // TABLA
+
+    .table-heading {
+        align-items: flex-start;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .summary-modal {
+        padding: 10px;
+    }
+
+    .summary-modal-content {
+        max-height: 95vh;
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    .summary-modal-header {
+        margin-bottom: 20px;
+
+        h2 {
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 12px;
+        }
+    }
+
+    .summary-total-card {
+        padding: 19px;
+
+        span {
+            font-size: 12px;
+        }
+
+        strong {
+            font-size: 30px;
+        }
+    }
+
+    .summary-data-layout {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .summary-chart-container,
+    .summary-table-container {
+        padding: 17px;
+    }
+
+    .summary-chart,
+    .summary-table-container {
+        max-height: 350px;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .summary-modal-content {
+        padding: 15px;
+    }
+
+    .summary-total-card {
+        gap: 10px;
+        padding: 17px;
+
+        strong {
+            font-size: 26px;
+        }
+    }
+
+    .summary-bar-container {
+        grid-template-columns: 42px minmax(0, 1fr) 25px;
+        gap: 7px;
+    }
+}
